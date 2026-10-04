@@ -1,0 +1,19 @@
+@extends('layouts.app')
+@section('title', 'Contact | '.($settings['agency_name'] ?? 'Mountain Trails'))
+@section('content')
+<div class="bg-mist pt-28"><div class="container-shell py-14"><div class="max-w-2xl"><p class="text-sm font-bold uppercase tracking-[0.2em] text-forest">Let’s plan your trip</p><h1 class="mt-3 text-5xl">Contact our travel team.</h1><p class="mt-4 text-slate-500">Choose the quickest way to get package details, or send us your travel requirements.</p></div></div></div>
+<section class="py-12"><div class="container-shell grid gap-6 lg:grid-cols-3">
+<div class="card p-7"><div class="text-sm font-bold uppercase tracking-widest text-forest">01 · Direct Call</div><h2 class="mt-3 text-2xl">Call Now</h2><p class="mt-2 text-sm text-slate-500">Speak directly with our travel team.</p><a href="tel:{{ $settings['phone'] }}" class="btn-primary mt-6 w-full">Call {{ $settings['phone'] }}</a></div>
+<div class="card p-7"><div class="text-sm font-bold uppercase tracking-widest text-forest">02 · WhatsApp</div><h2 class="mt-3 text-2xl">Chat on WhatsApp</h2><p class="mt-2 text-sm text-slate-500">Get package details with a pre-filled message.</p>@php $waText = 'Hello, I am interested in the '.($selected['name'] ?? 'travel packages').'. Please share more details.'; @endphp<a target="_blank" rel="noopener" href="https://wa.me/{{ $settings['whatsapp'] }}?text={{ urlencode($waText) }}" class="btn mt-6 w-full bg-sand text-ink">Open WhatsApp</a></div>
+<div class="card p-7 lg:col-span-1"><div class="text-sm font-bold uppercase tracking-widest text-forest">03 · Enquiry Form</div><h2 class="mt-3 text-2xl">Send Enquiry</h2><p class="mt-2 text-sm text-slate-500">Tell us what you need and we’ll get back to you.</p>
+@if(session('success'))<div class="mt-5 rounded-2xl bg-mist p-4 text-sm font-semibold text-forest">{{ session('success') }}</div>@endif
+<form method="POST" action="{{ route('contact.store') }}" class="mt-6 space-y-4">@csrf
+<div><label class="text-sm font-semibold">Full Name *</label><input name="full_name" value="{{ old('full_name') }}" class="mt-1 w-full rounded-xl border-slate-200" required>@error('full_name')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror</div>
+<div><label class="text-sm font-semibold">Phone Number *</label><input name="phone" value="{{ old('phone') }}" class="mt-1 w-full rounded-xl border-slate-200" required>@error('phone')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror</div>
+<div><label class="text-sm font-semibold">Email</label><input type="email" name="email" value="{{ old('email') }}" class="mt-1 w-full rounded-xl border-slate-200"></div>
+<div><label class="text-sm font-semibold">Selected Package *</label><select name="selected_package" class="mt-1 w-full rounded-xl border-slate-200" required><option value="">Choose a package</option>@foreach($packages as $package)<option value="{{ $package['slug'] }}" @selected(old('selected_package', $selected['slug'] ?? '') === $package['slug'])>{{ $package['name'] }}</option>@endforeach</select>@error('selected_package')<p class="mt-1 text-xs text-red-600">{{ $message }}</p>@enderror</div>
+<div class="grid grid-cols-2 gap-3"><div><label class="text-sm font-semibold">Travellers *</label><input type="number" min="1" max="50" name="travellers" value="{{ old('travellers', 1) }}" class="mt-1 w-full rounded-xl border-slate-200" required></div><div><label class="text-sm font-semibold">Travel Date</label><input type="date" name="travel_date" value="{{ old('travel_date') }}" class="mt-1 w-full rounded-xl border-slate-200"></div></div>
+<div><label class="text-sm font-semibold">Message</label><textarea name="message" rows="4" maxlength="1000" class="mt-1 w-full rounded-xl border-slate-200">{{ old('message') }}</textarea></div>
+<button class="btn-primary w-full">Send Enquiry</button></form></div>
+</div></section>
+@endsection

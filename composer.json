@@ -3,7 +3,7 @@
   "type": "project",
   "description": "Simple Laravel 11 tour and travel lead-generation website with JSON storage.",
   "require": {
-    "php": "^8.2",
+    "php": "^8.3",
     "laravel/framework": "^12.0",
     "laravel/tinker": "^2.9"
   },

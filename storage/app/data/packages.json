@@ -7,6 +7,8 @@
     "short_description": "Explore breathtaking mountains, valleys and scenic destinations across Himachal Pradesh.",
     "duration": "5 Nights / 6 Days",
     "price": "₹14,999",
+    "old_price": "₹17,999",
+    "rating": "5.0",
     "highlights": ["Shimla", "Manali", "Local Sightseeing", "Mountain Experience"]
   },
   {
@@ -17,6 +19,8 @@
     "short_description": "Discover peaceful mountains, rivers and beautiful destinations across Uttarakhand.",
     "duration": "5 Nights / 6 Days",
     "price": "₹13,999",
+    "old_price": "₹16,499",
+    "rating": "4.9",
     "highlights": ["Rishikesh", "Mussoorie", "Local Sightseeing", "Nature Experience"]
   },
   {
@@ -27,6 +31,8 @@
     "short_description": "Experience the beauty, adventure and mountain landscapes of Manali.",
     "duration": "4 Nights / 5 Days",
     "price": "₹11,999",
+    "old_price": "₹14,499",
+    "rating": "4.8",
     "highlights": ["Solang Valley", "Rohtang", "Local Sightseeing", "Adventure Activities"]
   }
 ]

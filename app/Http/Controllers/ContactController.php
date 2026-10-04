@@ -39,8 +39,10 @@ class ContactController extends Controller
 
         $validated['selected_package'] = $package['name'];
         $validated['package_slug'] = $package['slug'];
-        $enquiries->create($validated);
+        $enquiry = $enquiries->create($validated);
 
-        return redirect()->route('contact', ['package' => $package['slug']])->with('success', 'Thank you! Your enquiry has been received. Our travel team will contact you shortly.');
+        return back()
+            ->with('success', 'Thank you! Your enquiry has been received. Our travel team will contact you shortly.')
+            ->with('submitted_enquiry', $enquiry);
     }
 }

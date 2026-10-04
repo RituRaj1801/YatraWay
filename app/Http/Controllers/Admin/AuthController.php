@@ -10,16 +10,18 @@ class AuthController extends Controller
 {
     public function create(Request $request)
     {
-        if ($request->session()->boolean('admin_authenticated')) return redirect()->route('admin.dashboard');
+        if ((bool) $request->session()->get('admin_authenticated')) {
+            return redirect()->route('admin.dashboard');
+        }
+
         return view('admin.login');
     }
-
     public function store(Request $request)
     {
         $credentials = $request->validate(['email' => ['required', 'email'], 'password' => ['required', 'string']]);
-        $emailOk = hash_equals((string) env('ADMIN_EMAIL', ''), $credentials['email']);
+        $emailOk = env('ADMIN_EMAIL', '') === $credentials['email'];
         $configured = (string) env('ADMIN_PASSWORD', '');
-        $passwordOk = $configured !== '' && hash_equals($configured, $credentials['password']);
+        $passwordOk = $configured !== '' && ($credentials['password'] === $configured);
         if (! $emailOk || ! $passwordOk) return back()->withInput($request->only('email'))->withErrors(['email' => 'Invalid administrator credentials.']);
 
         $request->session()->regenerate();

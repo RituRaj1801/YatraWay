@@ -17,6 +17,7 @@ Route::post('/admin/logout', [AuthController::class, 'destroy'])->middleware(Adm
 
 Route::middleware(AdminAuth::class)->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [EnquiryController::class, 'dashboard'])->name('dashboard');
+    Route::post('/dashboard/enquiries', [EnquiryController::class, 'store'])->name('dashboard.enquiries.store');
     Route::get('/enquiries', [EnquiryController::class, 'index'])->name('enquiries.index');
     Route::get('/enquiries/{id}', [EnquiryController::class, 'show'])->name('enquiries.show');
     Route::delete('/enquiries/{id}', [EnquiryController::class, 'destroy'])->name('enquiries.destroy');

@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "full_name": "rituraj",
+        "phone": "9311459158",
+        "email": "rituraj995kumar@gmail.com",
+        "selected_package": "Himachal Package",
+        "travellers": "4",
+        "travel_date": "2026-10-30",
+        "message": "Hello there",
+        "package_slug": "himachal",
+        "id": "ENQ-000001",
+        "created_at": "2026-10-04 16:15:19"
+    }
+]

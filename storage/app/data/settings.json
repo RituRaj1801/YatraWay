@@ -1,9 +1,75 @@
 {
   "agency_name": "Mountain Trails",
+  "tagline": "Travel with Confidence. Experience the Difference.",
   "phone": "+919999999999",
   "whatsapp": "919999999999",
   "email": "info@example.com",
   "address": "Delhi, India",
   "hero_title": "Explore The Mountains. Create Memories.",
-  "hero_description": "Discover unforgettable journeys across Himachal, Uttarakhand and Manali with carefully planned travel packages."
+  "hero_description": "Discover unforgettable journeys across Himachal, Uttarakhand and Manali with carefully planned travel packages.",
+  "about_title": "Your Journey, Our Responsibility",
+  "about_text": "Mountain Trails is a trusted, customer-focused travel company dedicated to making every mountain journey smooth, comfortable, affordable and memorable. We specialize in domestic tour packages, customized holidays and complete travel planning for families, groups and adventure seekers.",
+  "about_extra": "With years of hands-on experience across North India's most loved destinations, we build every itinerary on trust, personalized service and clear pricing so you can travel with confidence.",
+  "vision": "To be a respected name in mountain tourism, known for honest guidance, quality service and journeys travellers remember for years.",
+  "stats": [
+    { "value": "10+", "label": "Years of travel experience" },
+    { "value": "5,000+", "label": "Happy travellers served" },
+    { "value": "3", "label": "Signature mountain packages" }
+  ],
+  "services": [
+    { "title": "Domestic Tour Packages", "description": "Handpicked mountain tours across Himachal, Uttarakhand and Manali." },
+    { "title": "Customized Holidays", "description": "Bespoke itineraries tailored to your dates, budget and group size." },
+    { "title": "Family Holidays", "description": "Relaxed, well-paced trips designed for the whole family." },
+    { "title": "Honeymoon Tours", "description": "Romantic mountain getaways with scenic stays and private transfers." },
+    { "title": "Adventure Trips", "description": "Trekking, campfires and outdoor experiences with local support." },
+    { "title": "Travel Assistance", "description": "Phone and WhatsApp support from enquiry to trip planning." }
+  ],
+  "destinations": [
+    { "name": "Himachal Pradesh", "tagline": "Snowy Peaks", "image": "/images/packages/himachal.jpg" },
+    { "name": "Uttarakhand", "tagline": "Devbhoomi Valley", "image": "/images/packages/uttarakhand.jpg" },
+    { "name": "Manali", "tagline": "Adventure Capital", "image": "/images/packages/manali.jpg" }
+  ],
+  "hero_slides": [
+    {
+      "eyebrow": "Discover the hills",
+      "title": "Serene Himachal",
+      "subtitle": "Valleys, pine forests & mountain escapes",
+      "description": "Explore Shimla, Manali and scenic Himachal routes with carefully planned stays and local sightseeing.",
+      "image": "/images/packages/himachal.jpg"
+    },
+    {
+      "eyebrow": "Land of the gods",
+      "title": "Peaceful Uttarakhand",
+      "subtitle": "Rivers, temples & quiet hills",
+      "description": "Discover Rishikesh, Mussoorie and nature trails designed for relaxed family and spiritual travel.",
+      "image": "/images/packages/uttarakhand.jpg"
+    },
+    {
+      "eyebrow": "Adventure awaits",
+      "title": "Majestic Manali",
+      "subtitle": "Snow peaks & valley thrills",
+      "description": "Experience Solang, Rohtang viewpoints and Manali's mountain charm with easy enquiry support.",
+      "image": "/images/packages/manali.jpg"
+    }
+  ],
+  "why_choose": [
+    { "title": "Experienced Travel Support", "description": "Get assistance throughout your travel planning from a dedicated team." },
+    { "title": "Affordable Packages", "description": "Transparent pricing with packages designed for great value." },
+    { "title": "Customized Planning", "description": "Adjust itineraries according to your dates, group and preferences." },
+    { "title": "Quick Customer Support", "description": "Reach us anytime by phone or WhatsApp for package details." }
+  ],
+  "testimonials": [
+    {
+      "name": "Priya Kapoor",
+      "text": "Mountain Trails turned our family Himachal holiday into an unforgettable trip. Clear planning and friendly support made everything easy."
+    },
+    {
+      "name": "Rahul Mehta",
+      "text": "As a solo traveller I needed flexible dates. They customized a Manali package quickly and kept me updated throughout."
+    },
+    {
+      "name": "Anita Sharma",
+      "text": "Transparent pricing and thoughtful Uttarakhand recommendations. Highly recommend for anyone planning a mountain escape."
+    }
+  ]
 }

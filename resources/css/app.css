@@ -7,6 +7,7 @@
   body { @apply bg-white text-ink antialiased; font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif; }
   h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
 }
+
 @layer components {
   .container-shell { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
   .btn { @apply inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-bold transition duration-200; }
@@ -14,4 +15,22 @@
   .btn-light { @apply btn bg-white text-forest hover:-translate-y-0.5 hover:shadow-lg; }
   .btn-outline { @apply btn border border-slate-200 bg-white text-ink hover:border-forest hover:text-forest; }
   .card { @apply rounded-3xl border border-slate-100 bg-white shadow-soft; }
+  .section-eyebrow { @apply text-sm font-bold uppercase tracking-[0.2em] text-forest; }
+  .fade-up { animation: fadeUp 0.8s ease both; }
+  .hero-slide { @apply absolute inset-0 opacity-0 transition-opacity duration-1000; }
+  .hero-slide.is-active { @apply opacity-100; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drift {
+  from { transform: scale(1.05); }
+  to { transform: scale(1); }
+}
+
+.hero-slide.is-active img {
+  animation: drift 8s ease-out both;
 }

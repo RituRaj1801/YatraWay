@@ -50,6 +50,36 @@
   </div>
 </div>
 
+{{-- JSON file editor access --}}
+<div class="mt-8 card p-6">
+  <div class="flex flex-wrap items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-mist text-forest">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6M7 4h10a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
+      </span>
+      <div>
+        <h2 class="text-2xl">Edit JSON data</h2>
+        <p class="text-sm text-slate-500">Update settings, packages and enquiries directly from admin.</p>
+      </div>
+    </div>
+    <a class="btn-outline" href="{{ route('admin.json.index') }}">Open JSON manager</a>
+  </div>
+  <div class="mt-5 grid gap-3 sm:grid-cols-3">
+    <a href="{{ route('admin.json.edit', 'settings.json') }}" class="rounded-2xl border border-slate-100 bg-white p-4 transition hover:border-forest hover:shadow-soft">
+      <p class="font-semibold">settings.json</p>
+      <p class="mt-1 text-xs text-slate-500">Agency info, hero, services</p>
+    </a>
+    <a href="{{ route('admin.json.edit', 'packages.json') }}" class="rounded-2xl border border-slate-100 bg-white p-4 transition hover:border-forest hover:shadow-soft">
+      <p class="font-semibold">packages.json</p>
+      <p class="mt-1 text-xs text-slate-500">Tour packages and prices</p>
+    </a>
+    <a href="{{ route('admin.json.edit', 'enquiries.json') }}" class="rounded-2xl border border-slate-100 bg-white p-4 transition hover:border-forest hover:shadow-soft">
+      <p class="font-semibold">enquiries.json</p>
+      <p class="mt-1 text-xs text-slate-500">Submitted lead records</p>
+    </a>
+  </div>
+</div>
+
 {{-- Packages overview + quick add form --}}
 <div class="mt-8 grid gap-6 xl:grid-cols-5">
   <div class="card p-6 xl:col-span-2">

@@ -58,6 +58,32 @@ class JsonDataService
         }
     }
 
+    public function readRaw(string $filename): string
+    {
+        $data = $this->read($filename, []);
+        return json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    }
+
+    public function writeRaw(string $filename, string $json): void
+    {
+        try {
+            $decoded = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
+        } catch (\JsonException $e) {
+            throw new \InvalidArgumentException('Invalid JSON: '.$e->getMessage());
+        }
+
+        $this->write($filename, $decoded);
+    }
+
+    public function allowedFiles(): array
+    {
+        return [
+            'settings.json' => 'Site settings, hero slides, services and contact info',
+            'packages.json' => 'Tour packages shown on the public website',
+            'enquiries.json' => 'All submitted enquiry leads',
+        ];
+    }
+
     private function path(string $filename): string
     {
         if (! preg_match('/^[A-Za-z0-9._-]+\.json$/', $filename)) throw new \InvalidArgumentException('Invalid data filename.');

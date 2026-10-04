@@ -4,6 +4,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\EnquiryController;
+use App\Http\Controllers\Admin\JsonFileController;
 use App\Http\Middleware\AdminAuth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,7 @@ Route::middleware(AdminAuth::class)->prefix('admin')->name('admin.')->group(func
     Route::get('/enquiries', [EnquiryController::class, 'index'])->name('enquiries.index');
     Route::get('/enquiries/{id}', [EnquiryController::class, 'show'])->name('enquiries.show');
     Route::delete('/enquiries/{id}', [EnquiryController::class, 'destroy'])->name('enquiries.destroy');
+    Route::get('/json', [JsonFileController::class, 'index'])->name('json.index');
+    Route::get('/json/{filename}', [JsonFileController::class, 'edit'])->name('json.edit');
+    Route::put('/json/{filename}', [JsonFileController::class, 'update'])->name('json.update');
 });

@@ -19,9 +19,22 @@ class AuthController extends Controller
     public function store(Request $request)
     {
         $credentials = $request->validate(['email' => ['required', 'email'], 'password' => ['required', 'string']]);
-        $emailOk = env('ADMIN_EMAIL', '') === $credentials['email'];
-        $configured = (string) env('ADMIN_PASSWORD', '');
-        $passwordOk = $configured !== '' && ($credentials['password'] === $configured);
+        $emails = explode(',', env('ADMIN_EMAIL', ''));
+        $passwords = explode(',', env('ADMIN_PASSWORD', ''));
+        $emailOk = false;
+        $passwordOk = false;
+        foreach ($emails as $email) {
+            if ($email === $credentials['email']) {
+                $emailOk = true;
+                break;
+            }
+        }
+        foreach ($passwords as $password) {
+            if ($password === $credentials['password']) {
+                $passwordOk = true;
+                break;
+            }
+        }
         if (! $emailOk || ! $passwordOk) return back()->withInput($request->only('email'))->withErrors(['email' => 'Invalid administrator credentials.']);
 
         $request->session()->regenerate();

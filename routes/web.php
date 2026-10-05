@@ -31,22 +31,29 @@ use Illuminate\Support\Facades\Response;
 
 Route::get('/sitemap.xml', function () {
     $urls = [
-        url('/'),
-        url('/contact'),
+        [
+            'loc' => url('/'),
+            'lastmod' => now()->toAtomString(),
+        ],
+        [
+            'loc' => url('/contact'),
+            'lastmod' => now()->toAtomString(),
+        ],
     ];
 
     $xml = '<?xml version="1.0" encoding="UTF-8"?>';
     $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 
-    foreach ($urls as $url) {
+    foreach ($urls as $item) {
         $xml .= '<url>';
-        $xml .= '<loc>' . htmlspecialchars($url) . '</loc>';
+        $xml .= '<loc>' . htmlspecialchars($item['loc'], ENT_XML1, 'UTF-8') . '</loc>';
+        $xml .= '<lastmod>' . $item['lastmod'] . '</lastmod>';
         $xml .= '</url>';
     }
 
     $xml .= '</urlset>';
 
     return Response::make($xml, 200, [
-        'Content-Type' => 'application/xml',
+        'Content-Type' => 'application/xml; charset=UTF-8',
     ]);
 });

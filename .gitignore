@@ -9,4 +9,5 @@
 /storage/framework/testing/*
 /storage/framework/views/*
 /storage/logs/*
+/storage/app/*.json
 .phpunit.result.cache

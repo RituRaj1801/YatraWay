@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('title', $settings['agency_name'] ?? 'Mountain Trails')</title>
+    <title>@yield('title', 'WingsYourTrip')</title>
 
     <meta name="description"
-        content="Explore Himachal, Manali and Uttarakhand tour packages with WingsYourTrip. Discover customized holidays, family trips, honeymoon packages and mountain adventures across India.">
-
-    <link rel="canonical" href="{{ url()->current() }}">
+        content="WingsYourTrip offers Himachal and Manali tour packages from Delhi, customized family holidays, honeymoon trips and mountain tours across Himachal Pradesh and Uttarakhand.">
+    <link rel="canonical" href="{{ url('/') }}">
+    <meta name="robots" content="index, follow">
 
     <meta property="og:title" content="{{ $settings['agency_name'] ?? 'Mountain Trails' }} | Mountain Travel Packages">
     <meta property="og:description" content="{{ $settings['hero_description'] ?? '' }}">

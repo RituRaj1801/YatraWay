@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'WingsYourTrip | Himachal, Manali & Uttarakhand Tour Packages')
+@section('title', 'WingsYourTrip | Himachal & Manali Tour Packages from Delhi')
 @section('content')
 
     {{-- Hero carousel inspired by R Travel --}}

@@ -26,3 +26,27 @@ Route::middleware(AdminAuth::class)->prefix('admin')->name('admin.')->group(func
     Route::get('/json/{filename}', [JsonFileController::class, 'edit'])->name('json.edit');
     Route::put('/json/{filename}', [JsonFileController::class, 'update'])->name('json.update');
 });
+
+use Illuminate\Support\Facades\Response;
+
+Route::get('/sitemap.xml', function () {
+    $urls = [
+        url('/'),
+        url('/contact'),
+    ];
+
+    $xml = '<?xml version="1.0" encoding="UTF-8"?>';
+    $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+    foreach ($urls as $url) {
+        $xml .= '<url>';
+        $xml .= '<loc>' . htmlspecialchars($url) . '</loc>';
+        $xml .= '</url>';
+    }
+
+    $xml .= '</urlset>';
+
+    return Response::make($xml, 200, [
+        'Content-Type' => 'application/xml',
+    ]);
+});

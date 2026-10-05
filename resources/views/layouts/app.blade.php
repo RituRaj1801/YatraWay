@@ -17,14 +17,14 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "WingsYourTrip",
-    "url": "https://wingsyourtrip.com/",
-    "logo": "https://wingsyourtrip.com/images/logo.png"
-}
-</script>
+        {!! json_encode([
+            '@context' => 'https://schema.org',
+            '@type' => 'Organization',
+            'name' => $settings['agency_name'] ?? 'WingsYourTrip',
+            'url' => url('/'),
+            'logo' => asset('images/logo.png'),
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+    </script>
 </head>
 
 <body>

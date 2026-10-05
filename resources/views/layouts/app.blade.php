@@ -19,10 +19,11 @@
     <script type="application/ld+json">
         {!! json_encode([
             '@context' => 'https://schema.org',
-            '@type' => 'Organization',
-            'name' => $settings['agency_name'] ?? 'WingsYourTrip',
+            '@type' => 'TravelAgency',
+            'name' => 'WingsYourTrip',
             'url' => url('/'),
-            'logo' => asset('images/logo.png'),
+            "logo"=> "https://wingsyourtrip.com/images/logo.png",
+            "description"=> "Explore Himachal, Manali and Uttarakhand tour packages with WingsYourTrip. Discover customized holidays, family trips, honeymoon packages and mountain adventures across India."
         ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
     </script>
 </head>

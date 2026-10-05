@@ -17,15 +17,15 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script type="application/ld+json">
-        {!! json_encode([
-            '@@context' => 'https://schema.org',
-            '@type' => 'TravelAgency',
-            'name' => 'WingsYourTrip',
-            'url' => url('/'),
-            "logo"=> "https://wingsyourtrip.com/images/logo.png",
-            "description"=> "Explore Himachal, Manali and Uttarakhand tour packages with WingsYourTrip. Discover customized holidays, family trips, honeymoon packages and mountain adventures across India."
-        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
-    </script>
+{!! json_encode([
+    '@context' => 'https://schema.org',
+    '@type' => 'TravelAgency',
+    'name' => 'WingsYourTrip',
+    'url' => url('/'),
+    'logo' => 'https://wingsyourtrip.com/images/logo.png',
+    'description' => 'Explore Himachal, Manali and Uttarakhand tour packages with WingsYourTrip. Discover customized holidays, family trips, honeymoon packages and mountain adventures across India.'
+], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+</script>
 </head>
 
 <body>
